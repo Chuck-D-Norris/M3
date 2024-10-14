@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llistat dels Usuaris</title>
+</head>
+<body>
+    <h1>User List</h1>
+
+    <form method="post" action="/add-user">
+        <label for="username">Nom del Usuari:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Agregar usuari </button>
+    </form>
+
+    <h2>Current Users:</h2>
+    <ul>
+        {% if users %}
+            {% for user in users %}
+            <li><a href="/users/{{ user }}">{{ user }}</a></li> 
+            {% endfor %}
+        {% else %}
+            <li>No users added yet.</li>
+        {% endif %}
+    </ul>
+</body>
+</html>
